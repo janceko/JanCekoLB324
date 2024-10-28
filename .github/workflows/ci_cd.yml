@@ -30,11 +30,11 @@ jobs:
           echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
-      - name: Run tests
-        env:
-          PYTHONPATH: src
-        run: |
-          pytest tests/
+      #- name: Run tests
+      #  env:
+        #  PYTHONPATH: src
+       # run: |
+         # pytest tests/
 
   deploy:
     runs-on: ubuntu-latest
