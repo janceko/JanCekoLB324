@@ -32,7 +32,7 @@ jobs:
 
     - name: Run tests
       env:
-        PYTHONPATH: C:\Users\TAACEJA1\PycharmProjects\M324\src
+        PYTHONPATH: src  # Setze den PYTHONPATH auf den relativen Pfad
       run: |
         pytest tests/
 
