@@ -2,17 +2,18 @@ import os
 import sys
 import pytest
 
-# Füge den src-Pfad zum PYTHONPATH hinzu
+# Füge den src-Pfad zum sys.path hinzu, um Importfehler zu umgehen
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from app import create_app  # Ändere den Import entsprechend deinem Pfad
-from models import db, Task  # Ändere den Import entsprechend deinem Pfad
+# Jetzt kannst du die Imports einfügen
+from app import create_app  # Achte darauf, dass dies korrekt ist
+from models import db, Task  # Achte darauf, dass dies korrekt ist
 
 @pytest.fixture
 def client():
     app = create_app()
     app.config["TESTING"] = True
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"  # In-Memory-Datenbank für Tests
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
     with app.app_context():
         db.create_all()
     with app.test_client() as client:
