@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+nname: CI/CD Pipeline
 
 on:
   push:
@@ -27,7 +27,9 @@ jobs:
 
     - name: Run tests
       run: |
-        PYTHONPATH=src pytest tests/
+        # Set PYTHONPATH to src before running tests
+        export PYTHONPATH=src
+        pytest tests/
 
   deploy:
     runs-on: ubuntu-latest
