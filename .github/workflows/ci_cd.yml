@@ -1,3 +1,4 @@
+# Beispiel in der CI/CD-Workflow-Datei
 name: CI/CD Pipeline
 
 on:
@@ -25,9 +26,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Set environment variables
+      run: |
+        echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
+        echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+
     - name: Run tests
       run: |
-        # Set PYTHONPATH to src before running tests
         export PYTHONPATH=src
         pytest tests/
 
@@ -45,3 +50,4 @@ jobs:
       run: |
         heroku git:remote -a <dein-heroku-app-name>
         git push heroku main
+
