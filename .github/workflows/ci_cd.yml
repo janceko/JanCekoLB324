@@ -1,4 +1,3 @@
-# Beispiel in der CI/CD-Workflow-Datei
 name: CI/CD Pipeline
 
 on:
@@ -32,8 +31,9 @@ jobs:
         echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
 
     - name: Run tests
+      env:
+        PYTHONPATH: C:\Users\TAACEJA1\PycharmProjects\M324\src
       run: |
-        export PYTHONPATH=src
         pytest tests/
 
   deploy:
@@ -50,4 +50,3 @@ jobs:
       run: |
         heroku git:remote -a <dein-heroku-app-name>
         git push heroku main
-
