@@ -1,6 +1,10 @@
+import sys
+import os
 import pytest
 from src.app import create_app
 from src.models import db, Task
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 @pytest.fixture
 def client():

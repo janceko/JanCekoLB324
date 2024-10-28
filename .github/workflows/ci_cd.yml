@@ -27,7 +27,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest tests/
+        PYTHONPATH=src pytest tests/
 
   deploy:
     runs-on: ubuntu-latest
