@@ -2,12 +2,12 @@ import os
 import sys
 import pytest
 
-# Füge den src-Pfad zum sys.path hinzu, um Importfehler zu umgehen
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-# Jetzt kannst du die Imports einfügen
-from app import create_app  # Achte darauf, dass dies korrekt ist
-from models import db, Task  # Achte darauf, dass dies korrekt ist
+
+from app import create_app
+from models import db, Task
 
 @pytest.fixture
 def client():
