@@ -48,6 +48,6 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          heroku git:remote -a <dein-heroku-app-name>
+          heroku git:remote -a 
           git push heroku main
 
